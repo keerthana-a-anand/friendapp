@@ -7,9 +7,9 @@ const AddFriend = () => {
     {
        
         "name": "",
-        "friendName": "",
-        "friendNickName": "",
-        "DescribeYourFriend": ""
+        "rollno": "",
+        "admno": "",
+        "college": ""
     }
  )
  const inputHandler=(events)=>
@@ -19,7 +19,7 @@ const AddFriend = () => {
     const readValue=()=>
         {
             console.log(data)
-            axios.post("https://friendsapi-re5a.onrender.com/adddata",data).then(
+            axios.post("http://localhost:8080/add",data).then(
               (response)=>{
                 console.log(response.data)
                 if(response.data.status=="success"){
@@ -29,7 +29,7 @@ const AddFriend = () => {
 
                 }
               }  
-            ).catch()
+            ).catch().finally()
         }
     return (
     <div>
@@ -43,16 +43,16 @@ const AddFriend = () => {
                     <input type="text" className="form-control" name='name' value={data.name} onChange={inputHandler} />
                 </div>
                 <div className="col col-12 col-sm-6 col-md-6">
-                <label htmlFor="" className="form-label">friendname</label>
-                <input type="text" className="form-control" name='friendName' value={data.friendName} onChange={inputHandler} />
+                <label htmlFor="" className="form-label">rollno</label>
+                <input type="text" className="form-control" name='rollno' value={data.rollno} onChange={inputHandler} />
                 </div>
                 <div className="col col-12 col-sm-6 col-md-6">
-                <label htmlFor="" className="form-label">friendnickname</label>
-                <input type="text" className="form-control" name='friendNickName' value={data.friendNickName} onChange={inputHandler}/>
+                <label htmlFor="" className="form-label">admno</label>
+                <input type="text" className="form-control" name='admno' value={data.admno} onChange={inputHandler}/>
                 </div>
                 <div className="col col-12 col-sm-12 col-md-12">
-                <label htmlFor="" className="form-label">description</label>
-                <textarea name="DescribeYourFriend" id="" className="form-control" value={data.DescribeYourFriend} onChange={inputHandler} ></textarea>
+                <label htmlFor="" className="form-label">college</label>
+                <input type="text" className="form-control" name='college' value={data.college} onChange={inputHandler}/>
                 </div>
                 <div className="col col-12 col-sm-6 col-md-6">
                     <button className="btn btn-success" onClick={readValue}>submit</button>

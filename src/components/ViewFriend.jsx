@@ -5,7 +5,7 @@ import Nav from './Nav'
 const ViewFriend = () => {
     const[data,setData]=useState([])
     const fetchData=()=>{
-    axios.get(" https://friendsapi-re5a.onrender.com/view").then(
+    axios.get("http://localhost:8080/view").then(
         (response)=>
             {
                 setData(response.data)
@@ -19,10 +19,10 @@ const ViewFriend = () => {
   <thead>
     <tr>
       <th scope="col">name</th>
-      <th scope="col">friendname
+      <th scope="col">rollno
       </th>
-      <th scope="col">nickname</th>
-      <th scope="col">description</th>
+      <th scope="col">admno</th>
+      <th scope="col">college</th>
     </tr>
   </thead>
   <tbody>
@@ -31,9 +31,9 @@ const ViewFriend = () => {
         {
             return  <tr>
             <th scope="row">{value.name}</th>
-            <td>{value.friendName}</td>
-            <td>{value.friendNickName}</td>
-            <td>{value.DescribeYourFriend}</td>
+            <td>{value.rollno}</td>
+            <td>{value.admno}</td>
+            <td>{value.college}</td>
           </tr>
         }
    )}
